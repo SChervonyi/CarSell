@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using Domain.Concrete.Interfaces;
-using Domain.Entities;
 
 namespace Domain.Concrete
 {

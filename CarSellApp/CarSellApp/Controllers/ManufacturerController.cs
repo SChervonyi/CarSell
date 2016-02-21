@@ -49,6 +49,7 @@ namespace CarSellApp.Controllers
 			if (ModelState.IsValid)
 			{
 				unitOfWork.ManufacturerRepository.Save(manufacturer.DomainManufacturer);
+				unitOfWork.CompleteAsync();
 				return RedirectToAction("Index");
 			}
 

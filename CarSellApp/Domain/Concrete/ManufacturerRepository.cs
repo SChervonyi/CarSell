@@ -12,17 +12,19 @@ namespace Domain.Concrete
 		{
 		}
 
-		public void Remove(Manufacturer entity)
+		public void Remove(long entityId)
 		{
-			var varToDelete = EFContext.Cars.Where(x => x.ManufacturerId == entity.Id);
-			EFContext.Cars.RemoveRange(varToDelete);
-			EFContext.Manufacturers.Remove(entity);
+			var carsToDelete = EFContext.Cars.Where(x => x.ManufacturerId == entityId);
+			EFContext.Cars.RemoveRange(carsToDelete);
+
+			var manufacturerToDelete = EFContext.Manufacturers.Find(entityId);
+			EFContext.Manufacturers.Remove(manufacturerToDelete);
 		}
 
-		public void RemoveRange(IEnumerable<Manufacturer> entities)
+		public void RemoveRange(IEnumerable<long> entityIds)
 		{
-			foreach (var entity in entities)
-				Remove(entity);
+			foreach (var entityId in entityIds)
+				Remove(entityId);
 		}
 
 		public void Save(Manufacturer entity)
@@ -37,7 +39,6 @@ namespace Domain.Concrete
 				manufacturer.Name = entity.Name;
 				manufacturer.Code = entity.Code;
 			}
-			EFContext.SaveChanges();
 		}
 
 		public EFDbContext EFContext

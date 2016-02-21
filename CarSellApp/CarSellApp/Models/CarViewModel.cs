@@ -22,6 +22,11 @@ namespace CarSellApp.Models
 			get { return domainCar; }
 		}
 
+		public long Id
+		{
+			get { return domainCar.Id; }
+		}
+
 		public string Code
 		{
 			get { return domainCar.Code; }

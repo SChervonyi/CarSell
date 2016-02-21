@@ -35,10 +35,11 @@ namespace CarSellApp.Controllers
 			return View(cars);
         }
 
-	    public ActionResult Delete(Car car)
+		[HttpPost]
+	    public ActionResult Delete(long carId)
 	    {
-		    cars.Remove(cars.Single(x => x.DomainCar.Id == car.Id));
-			unitOfWork.CarRepository.Remove(car.Id);
+		    cars.Remove(cars.Single(x => x.DomainCar.Id == carId));
+			unitOfWork.CarRepository.Remove(carId);
 		    unitOfWork.CompleteAsync();
 			return View("Index", cars);
 	    }
