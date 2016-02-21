@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using CarSellApp.Helpers;
 using CarSellApp.Models;
 using Domain.Concrete.Interfaces;
@@ -13,16 +14,23 @@ namespace CarSellApp.Controllers
     {
 	    private readonly IManufacturerRepository manufacturerRepository;
 
-	    public ManufacturerController(IManufacturerRepository manufacturerRepository)
+	    private IEnumerable<ManufacturerViewModel> manufacturers;
+
+		public ManufacturerController(IManufacturerRepository manufacturerRepository)
 	    {
 		    this.manufacturerRepository = manufacturerRepository;
 	    }
 
-        // GET: Manufacturer
-        public ActionResult Index()
+		protected override void Initialize(RequestContext requestContext)
+		{
+			base.Initialize(requestContext);
+			manufacturers = VMBuilder.BuildManufacturersVM(manufacturerRepository.GetAll());
+		}
+
+		// GET: Manufacturer
+		public ActionResult Index()
         {
-	        var manufacturers = manufacturerRepository.GetAll();
-			return View(VMBuilder.BuildManufacturersVM(manufacturers));
+			return View(manufacturers);
         }
     }
 }

@@ -26,8 +26,8 @@ namespace CarSellApp.Controllers
 
 	    protected override void Initialize(RequestContext requestContext)
 	    {
-			cars = VMBuilder.BuildCarsVM(carRepository.GetAll()).ToList();
 			base.Initialize(requestContext);
+			cars = VMBuilder.BuildCarsVM(carRepository.GetAll()).ToList();
 	    }
 
 	    // GET: Home

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
+using CarSellApp.Helpers;
 using CarSellApp.Models;
 using Domain.Concrete.Interfaces;
+using Domain.Entities;
 
 namespace CarSellApp.Controllers
 {
@@ -14,18 +17,27 @@ namespace CarSellApp.Controllers
 
 		private readonly ICarRepository carRepository;
 
+	    private IEnumerable<Manufacturer> manufacturers;
+
+		private IEnumerable<Car> cars;
+
 		public ManufacturerInfoController(IManufacturerRepository manufacturerRepository, ICarRepository carRepository)
 		{
 			this.manufacturerRepository = manufacturerRepository;
 			this.carRepository = carRepository;
 		}
 
+		protected override void Initialize(RequestContext requestContext)
+		{
+			base.Initialize(requestContext);
+
+			manufacturers = manufacturerRepository.GetAll();
+			cars = carRepository.GetAll();
+		}
+
 		// GET: ManufacturerInfo
 		public ActionResult Index()
         {
-			var manufacturers = manufacturerRepository.GetAll();
-			var cars = carRepository.GetAll();
-
 			var leftJoinQuery = from manufacturer in manufacturers
 				join car in cars on manufacturer.Id equals car.ManufacturerId into gj
 				from subcar in gj.DefaultIfEmpty()
@@ -49,10 +61,8 @@ namespace CarSellApp.Controllers
 
 	    public ActionResult Cheap()
 	    {
-			var manufacturers = manufacturerRepository.GetAll();
-			var cars = carRepository.GetAll();
-
-		    var groupQuery = from manufacturer in manufacturers
+			// I don't save and reuse previuse result just to show one more LINQ to Entities
+			var havingQuery = from manufacturer in manufacturers
 			    join car in cars on manufacturer.Id equals car.ManufacturerId
 			    group car by new { manufacturer.Code, manufacturer.Name }
 				into g
@@ -66,7 +76,7 @@ namespace CarSellApp.Controllers
 					ModelsCout = g.Count()
 				};
 
-			return View("Index", groupQuery);
+			return View("Index", havingQuery);
 	    }
     }
 }
