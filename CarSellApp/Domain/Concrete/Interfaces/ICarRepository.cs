@@ -5,6 +5,6 @@ namespace Domain.Concrete.Interfaces
 {
 	public interface ICarRepository : IRepository<Car>
 	{
-		IEnumerable<Car> GetCarsByManufacturer(int manufacturerId);
+		IEnumerable<Car> GetCarsByManufacturer(long manufacturerId);
 	}
 }
