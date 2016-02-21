@@ -4,6 +4,16 @@ namespace CarSellApp.Models
 {
 	public class ManufacturerViewModel
 	{
-		public Manufacturer Manufacturer { get; set; }
+		private readonly Manufacturer domainManufacturer;
+
+		public ManufacturerViewModel(Manufacturer domainManufacturer)
+		{
+			this.domainManufacturer = domainManufacturer;
+		}
+
+		public string Name
+		{
+			get { return domainManufacturer.Name; }
+		}
 	}
 }

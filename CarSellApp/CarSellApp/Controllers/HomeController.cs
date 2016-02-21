@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CarSellApp.Helpers;
 using Domain.Concrete;
 using Domain.Concrete.Interfaces;
 
@@ -11,7 +12,7 @@ namespace CarSellApp.Controllers
 {
     public class HomeController : Controller
     {
-	    private ICarRepository carRepository;
+	    private readonly ICarRepository carRepository;
 
 	    public HomeController(ICarRepository carRepository)
 	    {
@@ -20,9 +21,8 @@ namespace CarSellApp.Controllers
 
         // GET: Home
         public ActionResult Index()
-        {;
-	        var cars = carRepository.GetAll();
-
+        {
+			var cars = VMBuilder.BuildCarsVM(carRepository.GetAll());
 			return View(cars);
         }
     }

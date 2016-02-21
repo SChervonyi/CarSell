@@ -1,12 +1,12 @@
 ﻿
-@using Domain.Entities
-@model IEnumerable<Car>
+@using CarSellApp.Models
+@model IEnumerable<CarViewModel>
 
 @{
 	ViewBag.Title = "SportStore: Checkout";
 }
 
-<div>Manufacturers!</div>
+<div>Manufacturers</div>
 @foreach (var item in Model)
 {
 	<div>Name: @item.Name</div>
