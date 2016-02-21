@@ -12,6 +12,8 @@ namespace Domain.Concrete
 
 		public DbSet<Manufacturer> Manufacturers { get; set; }
 
-		public DbSet<Car> Cars { get; set; } 
+		public DbSet<Car> Cars { get; set; }
+
+		public DbSet<Equipment> Equipments { get; set; }
 	}
 }

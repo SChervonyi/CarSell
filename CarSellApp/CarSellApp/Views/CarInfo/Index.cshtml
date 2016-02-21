@@ -1,0 +1,25 @@
+﻿@using CarSellApp.Models
+@model IEnumerable<CarInfoViewModel>
+
+@{
+	ViewBag.Title = "Cars info";
+}
+
+<table>
+	<caption>Cars info</caption>
+	<tr>
+		<th>Manufacturer Name</th>
+		<th>Model Name</th>
+		<th>Equipment</th>
+		<th>Price</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.ManufacturerName</td>
+			<td>@item.CarName</td>
+			<td>@item.Equipment</td>
+			<td>@item.Price</td>
+		</tr>
+	}
+</table>

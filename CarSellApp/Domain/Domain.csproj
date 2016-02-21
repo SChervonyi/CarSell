@@ -49,9 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\EquipmentRepository.cs" />
     <Compile Include="Concrete\CarRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\Interfaces\ICarRepository.cs" />
+    <Compile Include="Concrete\Interfaces\IEquipmentRepository.cs" />
     <Compile Include="Concrete\Interfaces\IManufacturerRepository.cs" />
     <Compile Include="Concrete\Interfaces\IRepository.cs" />
     <Compile Include="Concrete\ManufacturerRepository.cs" />

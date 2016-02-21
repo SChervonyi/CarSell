@@ -32,6 +32,8 @@ namespace CarSellApp.Infrastructure
 			ninjectKernel.Bind<ICarRepository>().To<CarRepository>().WithConstructorArgument("context", efDbContext);
 
 			ninjectKernel.Bind<IManufacturerRepository>().To<ManufacturerRepository>().WithConstructorArgument("context", efDbContext);
+
+			ninjectKernel.Bind<IEquipmentRepository>().To<EquipmentRepository>().WithConstructorArgument("context", efDbContext);
 		}
 	}
 }

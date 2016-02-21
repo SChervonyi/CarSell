@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManufacturerController.cs" />
     <Compile Include="Controllers\ManufacturerInfoController.cs" />
@@ -115,6 +116,7 @@
     </Compile>
     <Compile Include="Helpers\VMBuilder.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="Models\CarInfoViewModel.cs" />
     <Compile Include="Models\CarViewModel.cs" />
     <Compile Include="Models\ManufacturerInfoViewModel.cs" />
     <Compile Include="Models\ManufacturerViewModel.cs" />
@@ -128,6 +130,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Manufacturer\Index.cshtml" />
     <Content Include="Views\ManufacturerInfo\Index.cshtml" />
+    <Content Include="Views\CarInfo\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
