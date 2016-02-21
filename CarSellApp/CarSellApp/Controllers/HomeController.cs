@@ -43,5 +43,5 @@ namespace CarSellApp.Controllers
 
 			return View("Index", cars);
 	    }
-    }
+	}
 }

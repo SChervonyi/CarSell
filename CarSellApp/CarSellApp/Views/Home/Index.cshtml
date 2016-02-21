@@ -17,7 +17,7 @@
 		<tr>
 			<td>@item.Manufacturer.Name</td>
 			<td>@item.Name</td>
-			<td><input type="button" title="Delete" value="Delete" onclick="location.href='@Url.Action("Delete", "Home",  item.DomainCar)'" /></td>
+			<td><input type="button" title="Delete" value="Delete" onclick="location.href = '@Url.Action("Delete", "Home", item.DomainCar)'"/></td>
 		</tr>
 	}
 </table>

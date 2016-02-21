@@ -32,5 +32,16 @@ namespace CarSellApp.Controllers
         {
 			return View(manufacturers);
         }
-    }
+
+		public ActionResult Edit(ManufacturerViewModel manufacturer)
+		{
+			return View(manufacturer);
+		}
+
+		public ActionResult Submit(ManufacturerViewModel manufacturer)
+		{
+
+			return View("Index", manufacturers);
+		}
+	}
 }

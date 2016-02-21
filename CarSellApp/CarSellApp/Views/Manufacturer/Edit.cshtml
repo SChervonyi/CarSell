@@ -1,0 +1,17 @@
+﻿@using CarSellApp.Models
+@model ManufacturerViewModel
+@{
+    Layout = null;
+}
+
+<h1>Edit @Model.Name</h1>
+
+@using (Html.BeginForm("Edit", "Manufacturer",
+				FormMethod.Get, new { enctype = "multipart/form-data" }))
+{
+
+	@Html.EditorForModel()
+
+	<div>@Html.ActionLink("Cancel", "Index")</div>
+	<div>@Html.ActionLink("Submit", "Submit")</div> 
+}

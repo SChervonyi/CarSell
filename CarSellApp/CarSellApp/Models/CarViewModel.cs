@@ -6,6 +6,11 @@ namespace CarSellApp.Models
 	{
 		private readonly Car domainCar;
 
+		public CarViewModel()
+		{
+			this.domainCar = new Car();
+		}
+
 		public CarViewModel(Car domainCar)
 		{
 			this.domainCar = domainCar;
@@ -17,9 +22,16 @@ namespace CarSellApp.Models
 			get { return domainCar; }
 		}
 
+		public string Code
+		{
+			get { return domainCar.Code; }
+			set { domainCar.Code = value; }
+		}
+
 		public string Name
 		{
 			get { return domainCar.Name; }
+			set { domainCar.Name = value; }
 		}
 
 		public decimal Price

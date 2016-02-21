@@ -131,6 +131,7 @@
     <Content Include="Views\Manufacturer\Index.cshtml" />
     <Content Include="Views\ManufacturerInfo\Index.cshtml" />
     <Content Include="Views\CarInfo\Index.cshtml" />
+    <Content Include="Views\Manufacturer\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

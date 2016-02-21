@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Domain.Concrete.Interfaces;
 using Domain.Entities;
@@ -22,6 +23,14 @@ namespace Domain.Concrete
 		{
 			foreach (var entity in entities)
 				Remove(entity);
+		}
+
+		public void Save(Manufacturer entity)
+		{
+			var manufacturer = EFContext.Manufacturers.Find(entity.Id);
+			manufacturer.Name = entity.Name;
+			manufacturer.Code = entity.Code;
+			EFContext.SaveChanges();
 		}
 
 		public EFDbContext EFContext
