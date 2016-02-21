@@ -44,7 +44,7 @@ namespace CarSellApp.Controllers
 					ModelsCout = g.Count()
 				};
 
-			return View(groupQuery);
+			return View(groupByQuery);
         }
     }
 }
