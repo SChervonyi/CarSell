@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -24,7 +25,7 @@ namespace CarSellApp.Controllers
 		protected override void Initialize(RequestContext requestContext)
 		{
 			base.Initialize(requestContext);
-			cars = VMBuilder.BuildCarsVM(unitOfWork.CarRepository.GetAll()).ToList();
+			cars = unitOfWork.CarRepository.GetAll().ToViewModels().ToList();
 		}
 
 		// GET: Car
@@ -34,11 +35,11 @@ namespace CarSellApp.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Delete(long carId)
+		public async Task<ActionResult> Delete(long carId)
 		{
 			cars.Remove(cars.Single(x => x.DomainCar.Id == carId));
 			unitOfWork.CarRepository.Remove(carId);
-			unitOfWork.CompleteAsync();
+			await unitOfWork.CompleteAsync();
 			return View("Index", cars);
 		}
 	}

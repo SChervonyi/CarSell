@@ -115,7 +115,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\VMBuilder.cs" />
+    <Compile Include="Helpers\CarExtentions.cs" />
+    <Compile Include="Helpers\ManufacturerExtentions.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Models\CarInfoViewModel.cs" />
     <Compile Include="Models\CarViewModel.cs" />

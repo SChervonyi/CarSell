@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -24,7 +25,7 @@ namespace CarSellApp.Controllers
 		protected override void Initialize(RequestContext requestContext)
 		{
 			base.Initialize(requestContext);
-			manufacturers = VMBuilder.BuildManufacturersVM(unitOfWork.ManufacturerRepository.GetAll());
+			manufacturers = unitOfWork.ManufacturerRepository.GetAll().ToViewModels();
 		}
 
 		// GET: Manufacturer
@@ -44,12 +45,12 @@ namespace CarSellApp.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Submit(ManufacturerViewModel manufacturer)
+		public async Task<ActionResult> Submit(ManufacturerViewModel manufacturer)
 		{
 			if (ModelState.IsValid)
 			{
 				unitOfWork.ManufacturerRepository.Save(manufacturer.DomainManufacturer);
-				unitOfWork.CompleteAsync();
+				await unitOfWork.CompleteAsync();
 				return RedirectToAction("Index");
 			}
 
