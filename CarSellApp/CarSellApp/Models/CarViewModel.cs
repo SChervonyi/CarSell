@@ -9,6 +9,7 @@ namespace CarSellApp.Models
 		public CarViewModel(Car domainCar)
 		{
 			this.domainCar = domainCar;
+			Manufacturer = new ManufacturerViewModel(domainCar.Manufacturer);
 		}
 
 		public string Name

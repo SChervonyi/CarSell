@@ -1,0 +1,28 @@
+﻿
+@using CarSellApp.Models
+@model IEnumerable<ManufacturerInfoViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table>
+	<caption>Manufacturers info</caption>
+	<tr>
+		<th>Code</th>
+		<th>Name</th>
+		<th>Max Pricde</th>
+		<th>Min Price</th>
+		<th>Models Cout</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.Code</td>
+			<td>@item.Name</td>
+			<td>@item.MaxPricde</td>
+			<td>@item.MinPrice</td>
+			<td>@item.ModelsCout</td>
+		</tr>
+	}
+</table>

@@ -4,24 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CarSellApp.Helpers;
+using CarSellApp.Models;
 using Domain.Concrete.Interfaces;
 
 namespace CarSellApp.Controllers
 {
     public class ManufacturerController : Controller
     {
-	    private readonly IManufacturerRepository repository;
+	    private readonly IManufacturerRepository manufacturerRepository;
 
-	    public ManufacturerController(IManufacturerRepository repository)
+	    public ManufacturerController(IManufacturerRepository manufacturerRepository)
 	    {
-		    this.repository = repository;
+		    this.manufacturerRepository = manufacturerRepository;
 	    }
 
         // GET: Manufacturer
         public ActionResult Index()
         {
-	        var manufacturers = VMBuilder.BuildManufacturersVM(repository.GetAll());
-            return View(manufacturers);
+	        var manufacturers = manufacturerRepository.GetAll();
+			return View(VMBuilder.BuildManufacturersVM(manufacturers));
         }
     }
 }

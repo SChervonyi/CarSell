@@ -18,8 +18,9 @@ SET IDENTITY_INSERT Cars ON
 truncate table Cars
 insert into Cars(Id, ManufacturerId, Code, Name, Price) values 
 	(1, 1, 'LANCER', 'Lancer X', 20000.77)
-	,(2, 1, 'PJSP', 'Pajero Sport', 42000)
-	,(3, 2, 'OCT', 'Octavia A5', 25000)
+	,(2, 1, 'ASX', 'ASX', 30000)
+	,(3, 1, 'PJSP', 'Pajero Sport', 42000)
+	,(4, 2, 'OCT', 'Octavia A5', 25000)
 
 SET IDENTITY_INSERT Cars OFF
 /* Cars table end */

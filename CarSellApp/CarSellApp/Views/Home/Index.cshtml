@@ -6,8 +6,18 @@
 	ViewBag.Title = "Car models";
 }
 
-<div>Manufacturers</div>
-@foreach (var item in Model)
-{
-	<div>Name: @item.Name</div>
-}
+<table>
+	<caption>Car models</caption>
+	<tr>
+		<th>Manufacturer Name</th>
+		<th>Name</th>
+		<th>Price</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.Manufacturer.Name</td>
+			<td>@item.Name</td>
+		</tr>
+	}
+</table>
