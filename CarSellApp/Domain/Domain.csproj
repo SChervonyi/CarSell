@@ -49,16 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Concrete\EquipmentRepository.cs" />
-    <Compile Include="Concrete\CarRepository.cs" />
+    <Compile Include="Concrete\Repositories\EquipmentRepository.cs" />
+    <Compile Include="Concrete\Repositories\CarRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\Interfaces\ICarRepository.cs" />
     <Compile Include="Concrete\Interfaces\IEquipmentRepository.cs" />
     <Compile Include="Concrete\Interfaces\IManufacturerRepository.cs" />
     <Compile Include="Concrete\Interfaces\IRepository.cs" />
     <Compile Include="Concrete\Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Concrete\ManufacturerRepository.cs" />
-    <Compile Include="Concrete\Repository.cs" />
+    <Compile Include="Concrete\Repositories\ManufacturerRepository.cs" />
+    <Compile Include="Concrete\Repositories\Repository.cs" />
     <Compile Include="Concrete\UnitOfWork.cs" />
     <Compile Include="Entities\Accessory.cs" />
     <Compile Include="Entities\Car.cs" />

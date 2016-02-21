@@ -4,7 +4,7 @@ using System.Linq;
 using Domain.Concrete.Interfaces;
 using Domain.Entities;
 
-namespace Domain.Concrete
+namespace Domain.Concrete.Repositories
 {
 	public class ManufacturerRepository : Repository<Manufacturer>, IManufacturerRepository
 	{

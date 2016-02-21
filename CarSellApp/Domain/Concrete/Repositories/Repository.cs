@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Domain.Concrete.Interfaces;
 
-namespace Domain.Concrete
+namespace Domain.Concrete.Repositories
 {
 	public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 	{

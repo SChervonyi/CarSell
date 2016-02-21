@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Domain.Concrete;
 using Domain.Concrete.Interfaces;
+using Domain.Concrete.Repositories;
 using Ninject;
 
 namespace CarSellApp.Infrastructure

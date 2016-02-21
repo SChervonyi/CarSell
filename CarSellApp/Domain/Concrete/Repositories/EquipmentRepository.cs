@@ -1,7 +1,7 @@
 ﻿using Domain.Concrete.Interfaces;
 using Domain.Entities;
 
-namespace Domain.Concrete
+namespace Domain.Concrete.Repositories
 {
 	public class EquipmentRepository : Repository<Equipment>, IEquipmentRepository
 	{
