@@ -11,14 +11,14 @@ namespace Domain.Concrete
 		{
 		}
 
-		public override void Remove(Manufacturer entity)
+		public void Remove(Manufacturer entity)
 		{
 			var varToDelete = EFContext.Cars.Where(x => x.ManufacturerId == entity.Id);
 			EFContext.Cars.RemoveRange(varToDelete);
 			EFContext.Manufacturers.Remove(entity);
 		}
 
-		public override void RemoveRange(IEnumerable<Manufacturer> entities)
+		public void RemoveRange(IEnumerable<Manufacturer> entities)
 		{
 			foreach (var entity in entities)
 				Remove(entity);

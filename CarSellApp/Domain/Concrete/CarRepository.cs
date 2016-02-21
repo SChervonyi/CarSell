@@ -17,6 +17,13 @@ namespace Domain.Concrete
 			return EFContext.Cars.Where(x => x.ManufacturerId == manufacturerId);
 		}
 
+		public void Remove(long carId)
+		{
+			var carToDelete = EFContext.Cars.Single(x => x.Id == carId);
+			EFContext.Cars.Remove(carToDelete);
+			EFContext.SaveChanges();
+		}
+
 		public EFDbContext EFContext
 		{
 			get { return Context as EFDbContext; }

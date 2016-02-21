@@ -12,6 +12,11 @@ namespace CarSellApp.Models
 			Manufacturer = new ManufacturerViewModel(domainCar.Manufacturer);
 		}
 
+		public Car DomainCar
+		{
+			get { return domainCar; }
+		}
+
 		public string Name
 		{
 			get { return domainCar.Name; }

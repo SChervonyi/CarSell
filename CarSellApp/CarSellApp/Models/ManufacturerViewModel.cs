@@ -13,12 +13,12 @@ namespace CarSellApp.Models
 
 		public string Code
 		{
-			get { return domainManufacturer.Code; }
+			get { return domainManufacturer?.Code; }
 		}
 
 		public string Name
 		{
-			get { return domainManufacturer.Name; }
+			get { return domainManufacturer?.Name; }
 		}
 
 		public int ModelsCout { get; set; }

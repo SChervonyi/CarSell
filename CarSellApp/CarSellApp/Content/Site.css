@@ -40,3 +40,12 @@ li a:hover {
 /*.active {
     background-color: #008000;
 }*/
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}

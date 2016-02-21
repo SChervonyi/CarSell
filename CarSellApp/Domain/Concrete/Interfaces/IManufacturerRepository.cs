@@ -5,5 +5,6 @@ namespace Domain.Concrete.Interfaces
 {
 	public interface IManufacturerRepository : IRepository<Manufacturer>
 	{
+		void Remove(Manufacturer entity);
 	}
 }
