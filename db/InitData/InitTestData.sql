@@ -8,6 +8,7 @@ insert into Manufacturers(Id, Code, Name) values
 	(1, 'MITSUBISHI', 'Mitsubishi Motors')
 	,(2, 'SHKODA', 'Shkoda Auto')
 	,(3, 'HONDA', 'Honda Motor')
+	,(4, 'LEXUS', 'Lexus Division')
 
 SET IDENTITY_INSERT Manufacturers OFF
 /* Manufactures table end */
@@ -21,6 +22,7 @@ insert into Cars(Id, ManufacturerId, Code, Name, Price) values
 	,(2, 1, 'ASX', 'ASX', 30000)
 	,(3, 1, 'PJSP', 'Pajero Sport', 42000)
 	,(4, 2, 'OCT', 'Octavia A5', 25000)
+	,(5, 4, 'RX450', 'RX450', 70000)
 
 SET IDENTITY_INSERT Cars OFF
 /* Cars table end */

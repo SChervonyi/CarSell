@@ -46,5 +46,27 @@ namespace CarSellApp.Controllers
 
 			return View(groupByQuery);
         }
+
+	    public ActionResult Cheap()
+	    {
+			var manufacturers = manufacturerRepository.GetAll();
+			var cars = carRepository.GetAll();
+
+		    var groupQuery = from manufacturer in manufacturers
+			    join car in cars on manufacturer.Id equals car.ManufacturerId
+			    group car by new { manufacturer.Code, manufacturer.Name }
+				into g
+				where g.Average(x => x.Price) < 45000
+			    select new ManufacturerInfoViewModel
+				{
+					Code = g.Key.Code,
+					Name = g.Key.Name,
+					MinPrice = g.Min(x => x.Price),
+					MaxPricde = g.Max(x => x.Price),
+					ModelsCout = g.Count()
+				};
+
+			return View("Index", groupQuery);
+	    }
     }
 }
