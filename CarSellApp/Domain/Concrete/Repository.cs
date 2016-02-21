@@ -47,12 +47,12 @@ namespace Domain.Concrete
 			Context.Set<TEntity>().AddRange(entities);
 		}
 
-		public void Remove(TEntity entity)
+		public virtual void Remove(TEntity entity)
 		{
 			Context.Set<TEntity>().Remove(entity);
 		}
 
-		public void RemoveRange(IEnumerable<TEntity> entities)
+		public virtual void RemoveRange(IEnumerable<TEntity> entities)
 		{
 			Context.Set<TEntity>().RemoveRange(entities);
 		}

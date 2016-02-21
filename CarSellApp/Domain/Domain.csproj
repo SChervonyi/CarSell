@@ -52,7 +52,9 @@
     <Compile Include="Concrete\CarRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\Interfaces\ICarRepository.cs" />
+    <Compile Include="Concrete\Interfaces\IManufacturerRepository.cs" />
     <Compile Include="Concrete\Interfaces\IRepository.cs" />
+    <Compile Include="Concrete\ManufacturerRepository.cs" />
     <Compile Include="Concrete\Repository.cs" />
     <Compile Include="Entities\Accessory.cs" />
     <Compile Include="Entities\Car.cs" />
