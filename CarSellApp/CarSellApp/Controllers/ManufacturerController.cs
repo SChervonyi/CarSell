@@ -38,10 +38,16 @@ namespace CarSellApp.Controllers
 			return View(manufacturer);
 		}
 
+		[HttpPost]
 		public ActionResult Submit(ManufacturerViewModel manufacturer)
 		{
-			manufacturerRepository.Save(manufacturer.DomainManufacturer);
-			return View("Index", manufacturers);
+			if (ModelState.IsValid)
+			{
+				manufacturerRepository.Save(manufacturer.DomainManufacturer);
+				return RedirectToAction("Index");
+			}
+
+			return View("Edit", manufacturer);
 		}
 	}
 }
