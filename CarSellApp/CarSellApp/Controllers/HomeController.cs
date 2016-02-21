@@ -5,19 +5,25 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Domain.Concrete;
+using Domain.Concrete.Interfaces;
 
 namespace CarSellApp.Controllers
 {
     public class HomeController : Controller
     {
+	    private ICarRepository carRepository;
+
+	    public HomeController(ICarRepository carRepository)
+	    {
+		    this.carRepository = carRepository;
+	    }
+
         // GET: Home
         public ActionResult Index()
-        {
-	        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-			var repository = new Repository(new EFDbContext(connectionString));
-	        var manufactures = repository.GetManufacturers();
+        {;
+	        var cars = carRepository.GetAll();
 
-			return View(manufactures);
+			return View(cars);
         }
     }
 }

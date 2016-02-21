@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using CarSellApp.Infrastructure;
 
 namespace CarSellApp
 {
@@ -13,6 +14,8 @@ namespace CarSellApp
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-        }
+
+			ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
+		}
     }
 }
