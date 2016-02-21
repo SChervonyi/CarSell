@@ -56,7 +56,7 @@ namespace CarSellApp.Controllers
 			return View(groupByQuery);
         }
 
-	    public ActionResult Cheap()
+	    public ActionResult ShowCheap()
 	    {
 			// I don't save and reuse previuse result just to show one more LINQ to Entities
 			var havingQuery = from manufacturer in manufacturers

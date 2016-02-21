@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\CarInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManufacturerController.cs" />
@@ -132,6 +133,7 @@
     <Content Include="Views\ManufacturerInfo\Index.cshtml" />
     <Content Include="Views\CarInfo\Index.cshtml" />
     <Content Include="Views\Manufacturer\Edit.cshtml" />
+    <Content Include="Views\Car\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

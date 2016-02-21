@@ -1,0 +1,29 @@
+﻿
+@using CarSellApp.Models
+@model IEnumerable<CarViewModel>
+
+@{
+	ViewBag.Title = "Car models";
+}
+
+<table>
+	<caption>Car models</caption>
+	<tr>
+		<th>Manufacturer Name</th>
+		<th>Name</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.Manufacturer.Name</td>
+			<td>@item.Name</td>
+			<td>
+				@using (Html.BeginForm("Delete", "Home"))
+			{
+				@Html.Hidden("carId", item.Id)
+				<input type="submit" value="Delete" />
+			}
+		</td>
+	</tr>
+	}
+</table>
