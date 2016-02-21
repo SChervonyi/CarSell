@@ -40,7 +40,7 @@ namespace CarSellApp.Controllers
 
 		public ActionResult Submit(ManufacturerViewModel manufacturer)
 		{
-
+			manufacturerRepository.Save(manufacturer.DomainManufacturer);
 			return View("Index", manufacturers);
 		}
 	}
