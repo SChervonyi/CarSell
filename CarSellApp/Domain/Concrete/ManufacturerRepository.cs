@@ -27,9 +27,16 @@ namespace Domain.Concrete
 
 		public void Save(Manufacturer entity)
 		{
-			var manufacturer = EFContext.Manufacturers.Find(entity.Id);
-			manufacturer.Name = entity.Name;
-			manufacturer.Code = entity.Code;
+			if (entity.Id == 0)
+			{
+				EFContext.Manufacturers.Add(entity);
+			}
+			else
+			{
+				var manufacturer = EFContext.Manufacturers.Find(entity.Id);
+				manufacturer.Name = entity.Name;
+				manufacturer.Code = entity.Code;
+			}
 			EFContext.SaveChanges();
 		}
 
