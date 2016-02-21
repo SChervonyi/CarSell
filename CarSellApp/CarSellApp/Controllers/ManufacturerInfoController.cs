@@ -13,26 +13,23 @@ namespace CarSellApp.Controllers
 {
     public class ManufacturerInfoController : Controller
     {
-		private readonly IManufacturerRepository manufacturerRepository;
+		private readonly IUnitOfWork unitOfWork;
 
-		private readonly ICarRepository carRepository;
-
-	    private IEnumerable<Manufacturer> manufacturers;
+		private IEnumerable<Manufacturer> manufacturers;
 
 		private IEnumerable<Car> cars;
 
-		public ManufacturerInfoController(IManufacturerRepository manufacturerRepository, ICarRepository carRepository)
+		public ManufacturerInfoController(IUnitOfWork unitOfWork)
 		{
-			this.manufacturerRepository = manufacturerRepository;
-			this.carRepository = carRepository;
+			this.unitOfWork = unitOfWork;
 		}
 
 		protected override void Initialize(RequestContext requestContext)
 		{
 			base.Initialize(requestContext);
 
-			manufacturers = manufacturerRepository.GetAll();
-			cars = carRepository.GetAll();
+			manufacturers = unitOfWork.ManufacturerRepository.GetAll();
+			cars = unitOfWork.CarRepository.GetAll();
 		}
 
 		// GET: ManufacturerInfo

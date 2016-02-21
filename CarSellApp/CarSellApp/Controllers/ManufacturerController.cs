@@ -12,19 +12,19 @@ namespace CarSellApp.Controllers
 {
     public class ManufacturerController : Controller
     {
-	    private readonly IManufacturerRepository manufacturerRepository;
+	    private readonly IUnitOfWork unitOfWork;
 
 	    private IEnumerable<ManufacturerViewModel> manufacturers;
 
-		public ManufacturerController(IManufacturerRepository manufacturerRepository)
+		public ManufacturerController(IUnitOfWork unitOfWork)
 	    {
-		    this.manufacturerRepository = manufacturerRepository;
+		    this.unitOfWork = unitOfWork;
 	    }
 
 		protected override void Initialize(RequestContext requestContext)
 		{
 			base.Initialize(requestContext);
-			manufacturers = VMBuilder.BuildManufacturersVM(manufacturerRepository.GetAll());
+			manufacturers = VMBuilder.BuildManufacturersVM(unitOfWork.ManufacturerRepository.GetAll());
 		}
 
 		// GET: Manufacturer
@@ -48,7 +48,7 @@ namespace CarSellApp.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				manufacturerRepository.Save(manufacturer.DomainManufacturer);
+				unitOfWork.ManufacturerRepository.Save(manufacturer.DomainManufacturer);
 				return RedirectToAction("Index");
 			}
 

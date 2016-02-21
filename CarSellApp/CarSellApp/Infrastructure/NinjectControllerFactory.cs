@@ -29,11 +29,12 @@ namespace CarSellApp.Infrastructure
 		{
 			string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 			var efDbContext = new EFDbContext(connectionString);
+
 			ninjectKernel.Bind<ICarRepository>().To<CarRepository>().WithConstructorArgument("context", efDbContext);
-
 			ninjectKernel.Bind<IManufacturerRepository>().To<ManufacturerRepository>().WithConstructorArgument("context", efDbContext);
-
 			ninjectKernel.Bind<IEquipmentRepository>().To<EquipmentRepository>().WithConstructorArgument("context", efDbContext);
+
+			ninjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument("context", efDbContext);
 		}
 	}
 }
