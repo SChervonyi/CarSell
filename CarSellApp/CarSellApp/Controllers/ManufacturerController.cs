@@ -53,9 +53,9 @@ namespace CarSellApp.Controllers
 			return View("Edit", new ManufacturerViewModel());
 		}
 
-		public ActionResult Edit(ManufacturerViewModel manufacturer)
+		public ActionResult Edit(long id)
 		{
-			return View(manufacturer);
+			return View(manufacturers.First(x => x.Id == id));
 		}
 
 		[HttpPost]

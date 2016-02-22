@@ -51,7 +51,7 @@ namespace CarSellApp.Controllers
 		[HttpPost]
 		public async Task<ActionResult> Delete(long carId)
 		{
-			cars.Remove(cars.Single(x => x.DomainCar.Id == carId));
+			cars.Remove(cars.First(x => x.DomainCar.Id == carId));
 			unitOfWork.CarRepository.Remove(carId);
 			await unitOfWork.CompleteAsync();
 			return View("Index", cars);
