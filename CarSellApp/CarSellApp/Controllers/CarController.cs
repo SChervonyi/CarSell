@@ -13,9 +13,17 @@ namespace CarSellApp.Controllers
 {
     public class CarController : Controller
     {
+		#region Pirvate Fiels.
+
 		private readonly IUnitOfWork unitOfWork;
 
 		private ICollection<CarViewModel> cars;
+
+		#endregion
+
+
+
+		#region Constructor, Initializer.
 
 		public CarController(IUnitOfWork unitOfWork)
 		{
@@ -27,6 +35,12 @@ namespace CarSellApp.Controllers
 			base.Initialize(requestContext);
 			cars = unitOfWork.CarRepository.GetAll().ToViewModels().ToList();
 		}
+
+		#endregion
+
+
+
+		#region Actions.
 
 		// GET: Car
 		public ActionResult Index()
@@ -42,5 +56,7 @@ namespace CarSellApp.Controllers
 			await unitOfWork.CompleteAsync();
 			return View("Index", cars);
 		}
+
+		#endregion
 	}
 }

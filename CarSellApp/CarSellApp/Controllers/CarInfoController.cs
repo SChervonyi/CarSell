@@ -11,11 +11,19 @@ namespace CarSellApp.Controllers
 {
     public class CarInfoController : Controller
     {
+		#region Pirvate Fiels.
+
 		private readonly IUnitOfWork unitOfWork;
 
 		private IEnumerable<CarInfoViewModel> carsInfo;
 
-	    public CarInfoController(IUnitOfWork unitOfWork)
+		#endregion
+
+
+
+		#region Constructor, Initializer.
+
+		public CarInfoController(IUnitOfWork unitOfWork)
 	    {
 		    this.unitOfWork = unitOfWork;
 	    }
@@ -40,10 +48,18 @@ namespace CarSellApp.Controllers
 			carsInfo = crossApply;
 		}
 
+		#endregion
+
+
+
+		#region Actions
+
 		// GET: CarInfo
 		public ActionResult Index()
         {
 			return View(carsInfo);
         }
-    }
+
+		#endregion
+	}
 }

@@ -13,11 +13,19 @@ namespace CarSellApp.Controllers
 {
     public class ManufacturerInfoController : Controller
     {
+		#region Pirvate Fiels.
+
 		private readonly IUnitOfWork unitOfWork;
 
 		private IEnumerable<Manufacturer> manufacturers;
 
 		private IEnumerable<Car> cars;
+
+		#endregion
+
+
+
+		#region Constructor, Initializer.
 
 		public ManufacturerInfoController(IUnitOfWork unitOfWork)
 		{
@@ -31,6 +39,12 @@ namespace CarSellApp.Controllers
 			manufacturers = unitOfWork.ManufacturerRepository.GetAll();
 			cars = unitOfWork.CarRepository.GetAll();
 		}
+
+		#endregion
+
+
+
+		#region Actions.
 
 		// GET: ManufacturerInfo
 		public ActionResult Index()
@@ -75,5 +89,7 @@ namespace CarSellApp.Controllers
 
 			return View("Index", havingQuery);
 	    }
-    }
+
+		#endregion
+	}
 }

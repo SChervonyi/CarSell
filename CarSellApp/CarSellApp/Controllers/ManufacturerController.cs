@@ -13,9 +13,17 @@ namespace CarSellApp.Controllers
 {
     public class ManufacturerController : Controller
     {
-	    private readonly IUnitOfWork unitOfWork;
+		#region Pirvate Fiels.
+
+		private readonly IUnitOfWork unitOfWork;
 
 	    private IEnumerable<ManufacturerViewModel> manufacturers;
+
+		#endregion
+
+
+
+		#region Constructor, Initializer.
 
 		public ManufacturerController(IUnitOfWork unitOfWork)
 	    {
@@ -27,6 +35,12 @@ namespace CarSellApp.Controllers
 			base.Initialize(requestContext);
 			manufacturers = unitOfWork.ManufacturerRepository.GetAll().ToViewModels();
 		}
+
+		#endregion
+
+
+
+		#region Actions.
 
 		// GET: Manufacturer
 		public ActionResult Index()
@@ -56,5 +70,7 @@ namespace CarSellApp.Controllers
 
 			return View("Edit", manufacturer);
 		}
+
+		#endregion
 	}
 }
